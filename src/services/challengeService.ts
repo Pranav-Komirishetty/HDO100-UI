@@ -1,7 +1,3 @@
-//const BASE_URL = "http://192.168.29.69:4000"; //winnie
-//const BASE_URL = "http://192.168.0.141:4000"; //tuffy
-//const BASE_URL = "http://192.168.137.1:4000"; //s24
-//http://localhost:4000
 const BASE_URL = import.meta.env.VITE_API_URL
 
 function getAuthHeaders() {
