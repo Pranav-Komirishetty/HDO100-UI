@@ -57,7 +57,7 @@ shadow-[inset_0_0_20px_rgba(255,255,255,0.15)] border border-white/90 rounded-xl
           <input
             type="text"
             placeholder="Enter OTP"
-            className="w-full border  border-gray-300 bg-neutral-400/20 text-white rounded-lg px-4 py-3 text-center tracking-widest text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full border  border-gray-300 bg-neutral-400/60 text-white rounded-lg px-4 py-3 text-center tracking-widest text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
             required
