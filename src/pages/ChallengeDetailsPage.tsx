@@ -60,7 +60,7 @@ export default function ChallengeDetailsPage() {
 
   const canStart =
     challenge.status === "draft" &&
-    challenge.tasks.length >= 10 &&
+    challenge.tasks.length >= 3 &&
     totalPoints === 100;
 
   async function handleGoToToday() {

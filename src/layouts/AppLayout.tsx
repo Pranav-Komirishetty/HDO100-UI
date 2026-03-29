@@ -5,6 +5,9 @@ import { Outlet } from "react-router-dom";
 import  powerIcon  from "../assets/power-on.svg";
 import profileIcon from "../assets/user.svg";
 import appLogo from "../assets/logo.svg";
+import AvatarPicker from "../components/AvatarPicker";
+import Instructions from "../components/Instructions";
+import { avatars } from "../services/avatarData";
 
 const tabs = [
   { label: "Overview", path: "/dashboard" },
@@ -16,6 +19,9 @@ export default function AppLayout() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const [avatarModal, setAvatarModal] = useState(false)
+  const [instructionsModal, setInstructionsModal] = useState(false)
+  const [avatar] = useState(localStorage.getItem("userAvatar"))
 
   const activeIndex = useMemo(() => {
     return tabs.findIndex((tab) => {
@@ -35,6 +41,8 @@ export default function AppLayout() {
     navigate("/login");
   };
 
+  const avatarPath = avatars.find(a => a.id === avatar)?.src;
+
   return (
     <div className="h-screen bg-custom-100/60 min-h-[100dvh] w-full overflow-hidden">
       {/* HEADER */}
@@ -53,7 +61,22 @@ flex justify-between items-center px-4 z-50 border-[0.50px]">
 
   {/* PROFILE */}
   <div className="relative">
-    <button
+      {avatarPath?.length ? 
+            <button
+  onClick={() => setOpen(!open)}
+  className="relative z-20 w-9 h-9 rounded-full flex items-center justify-center border-[0.25px] drop-shadow-md overflow-hidden"
+>
+
+  {/* Icon */}
+  <img
+    src={avatarPath}
+    alt="prf"
+    className="relative h-full w-full object-cover"
+  />
+
+</button>
+       : 
+          <button
   onClick={() => setOpen(!open)}
   className="relative z-20 w-9 h-9 rounded-full flex items-center justify-center border-[0.25px] drop-shadow-md"
 >
@@ -73,15 +96,32 @@ flex justify-between items-center px-4 z-50 border-[0.50px]">
   />
 
 </button>
+      }
 
     {open && (
-      <div className="fixed right-3 top-1 w-[90px] h-[110px] flex flex-col-reverse bg-neutral-700/60 backdrop-blur-3xl shadow-lg rounded-md rounded-tr-[20%] p-2">
+      <div className="fixed right-3 top-1 gap-2 w-[130px] h-[110px] flex flex-col-reverse bg-neutral-700/60 backdrop-blur-3xl shadow-lg rounded-md rounded-tr-[20%] p-2">
         <button
   onClick={logout}
   className="flex items-center gap-2 text-red-500 text-sm w-full text-left [text-shadow:0_1px_12px_rgba(0,0,0,1)]"
 >
   <img src={powerIcon} className="w-4 h-4 opacity-80 [text-shadow:0_1px_12px_rgba(0,0,0,1)]" />
   Logout
+</button>
+<button
+  onClick={()=>{
+    setAvatarModal(true)
+  }}
+  className="flex items-center gap-2 text-neutral-300 text-sm w-full text-left [text-shadow:0_1px_12px_rgba(0,0,0,1)]"
+>
+  Change avatar
+</button>
+<button
+  onClick={()=>{
+    setInstructionsModal(true)
+  }}
+  className="flex items-center gap-2 text-neutral-300 text-sm w-full text-left [text-shadow:0_1px_12px_rgba(0,0,0,1)]"
+>
+  Instructions
 </button>
       </div>
     )}
@@ -135,6 +175,20 @@ rounded-t-[55%] border-[0.50px]
           </div>
         </div>
       </nav>
+      {avatarModal && (
+  <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/40 backdrop-blur-sm">
+    <AvatarPicker onClose={()=>{
+      setAvatarModal(false)
+    }}/>
+  </div>
+)}
+{instructionsModal && (
+  <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/40 backdrop-blur-sm">
+    <Instructions onClose={()=>{
+      setInstructionsModal(false)
+    }}/>
+  </div>
+)}
     </div>
   );
 }

@@ -37,6 +37,8 @@ export default function Dashboard() {
           setData(res);
           setCalendar(res.calendar.months);
           localStorage.setItem('currentDay', res.current_day)
+          localStorage.setItem('userName', res.user)
+          localStorage.setItem('userAvatar', res.avatar)
         }
         hideLoader();
       } catch (err: any) {
@@ -116,6 +118,7 @@ export default function Dashboard() {
     <>
       <div className="min-h-screen p-4 pb-0">
         {/* Header */}
+        <div className="text-2xl font-bold text-neutral-600"> Hello! {data.user}</div>
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-cutom-400">
             {data.challenge.name}
