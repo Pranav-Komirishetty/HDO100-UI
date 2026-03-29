@@ -9,8 +9,8 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "100 Days Challenge",
-        short_name: "100Days",
+        name: "HDO100",
+        short_name: "HDO100",
         display: "standalone",
         theme_color: "#6366f1"
       }
