@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
+  "name": "HDO100-QA",
+  "short_name": "HDO100-QA",
+=======
   "name": "HDO100-Dev",
   "short_name": "HDO100-Dev",
+>>>>>>> main
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
