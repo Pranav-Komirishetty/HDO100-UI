@@ -265,10 +265,12 @@ export default function ChallengeEditorPage() {
                         ? "bg-green-400"
                         : totalPoints == 100
                           ? "bg-lime-500"
-                          : ""
+                          : totalPoints > 100
+                            ? "bg-red-600"
+                            : ""
             }`}
             style={{
-              width: `${(totalPoints / 100) * 100}%`,
+              width: `${totalPoints> 100 ? 100 : (totalPoints / 100) * 100 }%`,
             }}
           />
         </div>
@@ -331,7 +333,7 @@ export default function ChallengeEditorPage() {
             <input
               type="range"
               min={1}
-              max={10}
+              max={40}
               step={1}
               value={tasks[taskIndex]?.points}
               onChange={(e) =>
@@ -414,7 +416,7 @@ export default function ChallengeEditorPage() {
             setShowStartModal(true);
           }}
           disabled={
-            name.trim().length < 3 || tasks.length < 10 || totalPoints !== 100
+            name.trim().length < 3 || tasks.length < 3 || totalPoints !== 100
           }
           className="flex-1 bg-gradient-to-br from-custom-400 to-custom-200
       text-white/70
