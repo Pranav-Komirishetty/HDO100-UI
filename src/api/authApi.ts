@@ -7,11 +7,7 @@ export function sendSignupOtp(name: string, email: string) {
   });
 }
 
-export function verifySignupOtp(
-  name: string,
-  email: string,
-  otp: string
-) {
+export function verifySignupOtp(name: string, email: string, otp: string) {
   return apiRequest("/auth/signup/verify-otp", {
     method: "POST",
     body: JSON.stringify({ name, email, otp }),
@@ -26,11 +22,8 @@ export function sendSigninOtp(email: string) {
 }
 
 export function verifySigninOtp(email: string, otp: string) {
-  return apiRequest<{ token: string }>(
-    "/auth/signin/verify-otp",
-    {
-      method: "POST",
-      body: JSON.stringify({ email, otp }),
-    }
-  );
+  return apiRequest<{ token: string }>("/auth/signin/verify-otp", {
+    method: "POST",
+    body: JSON.stringify({ email, otp }),
+  });
 }

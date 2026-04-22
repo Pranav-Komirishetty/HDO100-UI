@@ -22,7 +22,6 @@ export default function VerifySignInOtp() {
     try {
       const res: any = await verifySigninOtp(email, otp);
 
-      // ✅ Store JWT
       login(res.token);
     } catch (err: any) {
       setError(err.message);
