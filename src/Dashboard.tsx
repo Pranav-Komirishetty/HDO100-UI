@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "./components/ToastContext";
 import { useAuth } from "./hooks/useAuth";
 import ColorGuide from "./components/ColorGuide";
-import {useLoader} from "./components/LoaderContext"
+import { useLoader } from "./components/LoaderContext";
 
 interface GridItem {
   day_number: number;
@@ -27,18 +27,18 @@ export default function Dashboard() {
   useEffect(() => {
     const load = async () => {
       try {
-        showLoader(localStorage.getItem('currentDay'));
+        showLoader(localStorage.getItem("currentDay"));
         const res = await getDashboard();
-        if(res.dashboard === null){
+        if (res.dashboard === null) {
           setData(null);
           setCalendar(null);
-          localStorage.setItem('currentDay', '0')
+          localStorage.setItem("currentDay", "0");
         } else {
           setData(res);
           setCalendar(res.calendar.months);
-          localStorage.setItem('currentDay', res.current_day)
-          localStorage.setItem('userName', res.user)
-          localStorage.setItem('userAvatar', res.avatar)
+          localStorage.setItem("currentDay", res.current_day);
+          localStorage.setItem("userName", res.user);
+          localStorage.setItem("userAvatar", res.avatar);
         }
         hideLoader();
       } catch (err: any) {
@@ -72,7 +72,7 @@ export default function Dashboard() {
       }
       navigate(`/my-challenges/challenge/${data.challenge.id}/today`);
     } catch {
-      showToast("Failed to start challenge","error");
+      showToast("Failed to start challenge", "error");
     }
   }
 
@@ -84,7 +84,7 @@ export default function Dashboard() {
       }
       navigate(`/my-challenges/challenge/${data.challenge.id}/calendar`);
     } catch {
-      showToast("Failed to start challenge","error");
+      showToast("Failed to start challenge", "error");
     }
   }
 
@@ -110,15 +110,17 @@ export default function Dashboard() {
         navigate(`/my-challenges/challenge/${data.challenge.id}/day/${date}`);
       }
     } catch {
-      showToast("Failed to start challenge","error");
+      showToast("Failed to start challenge", "error");
     }
   }
 
   return (
     <>
       <div className="min-h-screen p-4 pb-0">
-        {/* Header */}
-        <div className="text-2xl font-bold text-neutral-600"> Hello! {data.user}</div>
+        <div className="text-2xl font-bold text-neutral-600">
+          {" "}
+          Hello! {data.user}
+        </div>
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-cutom-400">
             {data.challenge.name}
@@ -128,7 +130,6 @@ export default function Dashboard() {
           </p>
         </div>
 
-        {/* 21 Day Grid */}
         <div
           className="shadow-xl border rounded-xl pl-1 pr-1 inset-shadow-sm
       border-custom-200 bg-gradient-to-b from-custom-200 to-custom-400"
@@ -219,7 +220,6 @@ export default function Dashboard() {
           />
         )}
 
-        {/* Progress */}
         <div
           className="my-6 px-3 border rounded-3xl shadow-lg/30 
       border-custom-200 bg-gradient-to-b from-custom-200 to-custom-400"

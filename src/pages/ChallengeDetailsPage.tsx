@@ -74,7 +74,7 @@ export default function ChallengeDetailsPage() {
       }
       navigate(`/my-challenges/challenge/${challenge.id}/today`);
     } catch {
-      showToast("Failed to start challenge","error");
+      showToast("Failed to start challenge", "error");
     }
   }
 
@@ -86,7 +86,7 @@ export default function ChallengeDetailsPage() {
       }
       navigate(`/my-challenges/challenge/${challenge.id}/insights`);
     } catch {
-      showToast("Failed to view insights","error");
+      showToast("Failed to view insights", "error");
     }
   }
 

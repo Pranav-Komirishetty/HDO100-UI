@@ -10,17 +10,22 @@ export default function Instructions({ onClose }: any) {
           <li>✅ Complete tasks daily and Log them</li>
           <li>🔥 Maintain streaks</li>
           <li>📊 Track progress</li>
-          <li>Note: Daily Task Logging is between <br></br> 2:00 AM<span className="text-gray-600 text-xs">{" (current day)"}</span> - 1:59 AM<span className="text-gray-600 text-xs">{" (next day)"}</span></li>
+          <li>
+            Note: Daily Task Logging is between <br></br> 2:00 AM
+            <span className="text-gray-600 text-xs">{" (current day)"}</span> -
+            1:59 AM
+            <span className="text-gray-600 text-xs">{" (next day)"}</span>
+          </li>
         </ul>
 
-       <div className="flex justify-end">
-         <button
-          onClick={onClose}
-          className="mt-4 bg-custom-400/70 text-white px-4 py-2 rounded-full"
-        >
-          Close
-        </button>
-       </div>
+        <div className="flex justify-end">
+          <button
+            onClick={onClose}
+            className="mt-4 bg-custom-400/70 text-white px-4 py-2 rounded-full"
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

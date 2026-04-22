@@ -25,7 +25,6 @@ export default function DashboardCalendar({
   const firstDay = new Date(currentMonth.days[0].date);
   let startOffset = firstDay.getDay();
 
-  // convert Sunday=0 → 6, Monday=1 → 0
   startOffset = startOffset === 0 ? 6 : startOffset - 1;
 
   const canGoPrev = monthIndex > 0;
@@ -58,7 +57,6 @@ export default function DashboardCalendar({
       className="mt-6 p-4 shadow-xl border rounded-2xl inset-shadow-sm
       border-custom-200 bg-gradient-to-b from-custom-200 to-custom-400"
     >
-      {/* HEADER */}
       <div className="flex justify-between items-center mb-4">
         <button
           disabled={!canGoPrev}
@@ -79,7 +77,6 @@ export default function DashboardCalendar({
         </button>
       </div>
 
-      {/* WEEKDAY HEADER */}
       <div className="grid grid-cols-7 text-xs text-black/70 font-bold mb-2">
         {[
           { id: "monday", dL: "M" },
@@ -96,7 +93,6 @@ export default function DashboardCalendar({
         ))}
       </div>
 
-      {/* DAYS GRID */}
       <div className="grid grid-cols-7 gap-1 text-sm">
         {Array.from({ length: startOffset }).map((_, i) => (
           <div key={"empty-" + i} />

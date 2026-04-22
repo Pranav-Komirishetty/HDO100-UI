@@ -23,8 +23,6 @@ export default function SignUp() {
       navigate("/verify-signup", {
         state: { name, email },
       });
-
-      // Later we will navigate to OTP screen
     } catch (err: any) {
       setError(err.message);
     } finally {

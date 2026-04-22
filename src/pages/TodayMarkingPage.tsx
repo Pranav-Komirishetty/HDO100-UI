@@ -89,7 +89,7 @@ export default function TodayMarkingPage() {
   }, [id, reset]);
 
   function toggleTask(taskId: string) {
-    if (checked[taskId]) return; // no downgrade
+    if (checked[taskId]) return;
 
     setChecked((prev) => ({
       ...prev,
