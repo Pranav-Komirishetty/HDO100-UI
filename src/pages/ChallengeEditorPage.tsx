@@ -43,7 +43,6 @@ export default function ChallengeEditorPage() {
     0,
   );
 
-  // Load draft if editing
   useEffect(() => {
     if (!id) {
       hideLoader();
@@ -79,7 +78,6 @@ export default function ChallengeEditorPage() {
     fetchDraft();
   }, [id]);
 
-  // Auto focus new task
   useEffect(() => {
     if (tasks.length > 0) {
       const lastIndex = tasks.length - 1;
@@ -129,7 +127,7 @@ export default function ChallengeEditorPage() {
 
   async function handleSave() {
     if (name.trim().length < 3) {
-      showToast("Challenge name must be at least 3 characters","info");
+      showToast("Challenge name must be at least 3 characters", "info");
       return;
     }
 
@@ -270,14 +268,13 @@ export default function ChallengeEditorPage() {
                             : ""
             }`}
             style={{
-              width: `${totalPoints> 100 ? 100 : (totalPoints / 100) * 100 }%`,
+              width: `${totalPoints > 100 ? 100 : (totalPoints / 100) * 100}%`,
             }}
           />
         </div>
       </div>
 
       <div className="space-y-4">
-        {/* HEADER NAVIGATION */}
         <div className="flex items-center justify-around">
           <button
             disabled={!canGoPrev}
@@ -316,7 +313,6 @@ export default function ChallengeEditorPage() {
           </button>
         </div>
 
-        {/* TASK EDITOR */}
         <div className="border rounded-xl p-2 space-y-3 bg-gradient-to-br from-custom-200 to-orange-300">
           <input
             type="text"

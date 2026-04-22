@@ -71,7 +71,7 @@ export default function ChallengeCalendarPage() {
         navigate(`/my-challenges/challenge/${id}/day/${date}`);
       }
     } catch {
-      showToast("Failed to start challenge","error");
+      showToast("Failed to start challenge", "error");
     }
   }
 
@@ -119,8 +119,6 @@ export default function ChallengeCalendarPage() {
       border-custom-200 bg-gradient-to-b from-custom-200 to-custom-400"
         >
           <h2 className="text-lg font-semibold mb-3">{month.label}</h2>
-
-          {/* Weekday Header */}
           <div className="grid grid-cols-7 text-xs text-black/70 font-bold mb-2">
             {[
               { id: "monday", dL: "M" },
@@ -137,7 +135,6 @@ export default function ChallengeCalendarPage() {
             ))}
           </div>
 
-          {/* Days Grid */}
           <div className="grid grid-cols-7 gap-1 text-sm">
             {Array.from({ length: month.startOffset }).map((_, i) => (
               <div key={"empty-" + i} />

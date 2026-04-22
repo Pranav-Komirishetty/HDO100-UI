@@ -77,8 +77,6 @@ export default function ChallengeInsightsPage() {
       <h1 className="text-lg font-bold mb-4 text-custom-400">
         {data.challenge.name} Insights
       </h1>
-
-      {/* STREAK CARDS */}
       <div className="grid grid-cols-2 gap-4 text-custom-400">
         <StatCard
           label="Current Activity Streak"
@@ -98,7 +96,6 @@ export default function ChallengeInsightsPage() {
         />
       </div>
 
-      {/* COMPLETION SUMMARY */}
       <div className="mt-6 bg-white p-4 rounded-xl shadow-sm text-custom-400">
         <p className="font-semibold mb-2">Challenge Summary</p>
         <p>High Scoring Days: {streaks.totalCompletedDays}</p>
@@ -106,7 +103,6 @@ export default function ChallengeInsightsPage() {
         <p>Missed Days: {streaks.systemMarkedDays}</p>
       </div>
 
-      {/* GRID */}
       <div className="mt-6">
         <div className="grid grid-cols-10 gap-1">
           {grid.cells.map((cell: any, index: number) => (
@@ -146,7 +142,6 @@ export default function ChallengeInsightsPage() {
           ))}
         </div>
 
-        {/* LEGEND */}
         <ColorGuide />
       </div>
     </div>

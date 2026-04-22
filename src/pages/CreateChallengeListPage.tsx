@@ -26,7 +26,7 @@ export default function CreateChallengeListPage() {
           showToast("Session expired. Please login again.", "error");
           logout();
         } else {
-          showToast("Failed to load drafts","error");
+          showToast("Failed to load drafts", "error");
         }
       } finally {
         hideLoader();
